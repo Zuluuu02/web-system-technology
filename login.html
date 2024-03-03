@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="index">
+    <div class="container">
+        <h1>Login</h1>
+        <form action="dashboard.html" method="post" onsubmit="return validateForm()">
+            <label for="username">Username:</label>
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="username" name="username" placeholder="Enter Username"><br>
+            </div>
+            <label for="psw">Password:</label>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="psw" name="password" placeholder="Enter Password"><br>
+            </div>
+            <button type="submit"><i class="fas fa-sign-in-alt"></i> Login</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('psw').value;
+            if (username === 'admin' && password === 'password') {
+                return true; 
+            } else {
+                alert('Invalid username or password');
+                return false; 
+            }
+        }
+    </script>
+</body>
+</html>
