@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard">
+    <header>
+        <h1>Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('analytics')">Analytics</a></li>
+                <li><a href="#" onclick="showSection('reports')">Reports</a></li>
+                <li><a href="#" onclick="showSection('settings')">Settings</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="welcome">
+            <h2>Welcome, <span id="username">XYRILLE UY</span>!</h2>
+            <p>This is the Main content area where you can display various information and charts.</p>
+        </section>
+
+        <section id="analytics" class="cards" style="display: none;">
+            <p>This is the Analytics area where you can display various information and charts.</p>
+        </section>
+
+        <section id="reports" class="cards" style="display: none;">
+            <p>This is the Report area where you can display various information and charts.</p>
+        </section>
+
+        <section id="settings" class="cards" style="display: none;">
+            <p>This is the Settings area where you can change various information.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Dashboard. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('main section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+            var section = document.getElementById(sectionId);
+            if (section) {
+                section.style.display = 'block';
+            }
+        }
+
+        function logout() {
+            alert('Logged out successfully!');
+        }
+        document.getElementById('username').textContent = 'UY, XYRILLE';
+    </script>
+</body>
+</html>
