@@ -4,232 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XYTIFY</title>
+    <title>Spotify Clone</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --gray-700: #00000080;
-            --gray-600: #121212;
-            --gray-500: rgba(0,0,0,.7);
-            --gray-400: #404040;
-            --gray-300: hsla(0,0%,100%,.6);
-            --gray-200: #282828;
-            --gray-100: #b3b3b3;
-            --bg-liked-songs: linear-gradient(135deg,#450af5,#c4efd9);
-            --green-100: #1ed760;
-            --green-200: #1db954;
-        }
-
-        @font-face {
-            font-family: spotify-circular;
-            src: url(https://open.scdn.co/cdn/fonts/CircularSpUIv3T-Light.afd9ab26.woff2) format("woff2"),
-            url(https://open.scdn.co/cdn/fonts/CircularSpUIv3T-Light.2a78c017.woff) format("woff"),
-            url(https://open.scdn.co/cdn/fonts/CircularSpUIv3T-Light.89e4be2e.ttf) format("truetype");
-            font-weight: 200;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: spotify-circular;
-            src: url(https://open.scdn.co/cdn/fonts/CircularSpUIv3T-Book.3466e0ec.woff2) format("woff2"),
-            url(https://open.scdn.co/cdn/fonts/CircularSpUIv3T-Book.ea8d19db.woff) format("woff"),
-            url(https://open.scdn.co/cdn/fonts/CircularSpUIv3T-Book.a357677a.ttf) format("truetype");
-            font-weight: 400;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        html,
-        body {
-            height: 100%;
-            background-color: var(--gray-600);
-            font-family: 'spotify-circular';
-        }
-
-        .bg-gray-700 {
-            background-color: var(--gray-700);
-        }
-
-        .bg-gray-200 {
-            background-color: var(--gray-200);
-        }
-
-        .bg-gray-500 {
-            background-color: var(--gray-500);
-        }
-
-        .bg-gray-600 {
-            background-color: var(--gray-600);
-        }
-
-        .bg-green-200 {
-            background-color: var(--green-200);
-        }
-
-        .bg-liked-songs {
-            background-image: var(--bg-liked-songs);
-        }
-
-        .hover\:border-green-200:hover {
-            border-color: var(--green-200);
-        }
-
-        .border-gray-100 {
-            border-color: var(--gray-100);
-        }
-
-        .border-gray-200 {
-            border-color: var(--gray-200);
-        }
-
-        .border-gray-300 {
-            border-color: var(--gray-300);
-        }
-
-        .border-gray-400 {
-            border-color: var(--gray-400);
-        }
-
-        .text-2xl {
-            font-size: 1.75rem;
-        }
-
-        .text-gray-100 {
-            color: var(--gray-100);
-        }
-
-        .text-green-200 {
-            color: var(--green-200);
-        }
-
-        .w-7 {
-            width: 1.75rem;
-        }
-
-        .w-14 {
-            width: 3.5rem;
-        }
-
-        .h-7 {
-            height: 1.75rem;
-        }
-
-        .h-14 {
-            height: 3.5rem;
-        }
-
-        .pt-full {
-            padding-top: 100%;
-        }
-
-        .text-line-clamp-1 {
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            display: -webkit-box;
-            word-break: break-all;
-            overflow: hidden;
-        }
-    </style>
 </head>
 
-<body class="bg-gray-100">
-    <div class="min-h-screen flex flex-col">
-        <header class="bg-black text-white py-4 px-6">
-            <div class="flex justify-between items-center">
-                <h1 class="text-2xl font-bold">Xytify</h1>
-                <div class="flex items-center space-x-4">
-                    <button class="text-gray-300 hover:text-gray-100" onclick="logout()">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M20 12H4" />
-                        </svg>
-                    </button>
-                    <button class="text-gray-300 hover:text-gray-100">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                    <button class="text-gray-300 hover:text-gray-100">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </header>
-
-        <main class="flex-1 overflow-y-auto px-6 py-4">
-
-            <div class="flex items-center justify-center bg-white rounded-lg shadow-lg p-6 mb-6 hover:shadow-xl transition duration-300">
-                <div class="w-40 h-40 bg-gray-200 rounded-lg flex justify-center items-center overflow-hidden">
-
-                    <img src="C:\Users\xyril\Downloads\wheels.jpg" alt="Album Cover" class="w-full h-auto" />
-                </div>
-                <div class="ml-6">
-                    <h2 class="text-xl font-semibold hover:text-gray-800 transition duration-300">Wheels On The Bus</h2>
-                    <p class="text-gray-600 hover:text-gray-700 transition duration-300">Bisag Kinsa</p>
-                    <div class="flex items-center space-x-4 mt-4">
-                        <button class="text-gray-600 hover:text-gray-800 transition duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M20 12H4" />
-                            </svg>
-                        </button>
-                        <button class="text-gray-600 hover:text-gray-800 transition duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <h3 class="text-lg font-semibold mb-4">Playlist</h3>
-
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="flex items-center space-x-4 hover:bg-gray-50 rounded-lg transition duration-300">
-                        <div class="w-12 h-12 bg-gray-200 rounded-lg flex justify-center items-center overflow-hidden">
-
-                            <img src="C:\Users\xyril\Downloads\hev.jpg" alt="Album Cover" class="w-full h-auto" />
-                        </div>
-                        <div>
-                            <h4 class="font-semibold hover:text-gray-800 transition duration-300">Heb Ababay</h4>
-                            <p class="text-gray-600 hover:text-gray-700 transition duration-300">Xyrille Uy</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-4 hover:bg-gray-50 rounded-lg transition duration-300">
-                        <div class="w-12 h-12 bg-gray-200 rounded-lg flex justify-center items-center overflow-hidden">
-                            <img src="C:\Users\xyril\Downloads/50.jpg" alt="Album Cover" class="w-full h-auto" />
-                        </div>
-                        <div>
-                            <h4 class="font-semibold hover:text-gray-800 transition duration-300">Top 50 - Philippines</h4>
-                            <p class="text-gray-600 hover:text-gray-700 transition duration-300">Your daily update of the most played tracks right now.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <footer class="bg-black text-white py-4 px-6">
-            <p class="text-center">&copy; 2024 Xytify</p>
-        </footer>
+<body class="bg-gray-900 text-white font-sans">
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-1/4 h-screen bg-gray-900">
+            <h1 class="text-3xl text-center font-bold my-8">Spotify</h1>
+            <nav class="text-gray-400">
+                <ul class="space-y-4">
+                    <li><a href="#" class="block py-2 px-4 hover:text-white">Home</a></li>
+                    <li><a href="#" class="block py-2 px-4 hover:text-white">Search</a></li>
+                    <li><a href="#" class="block py-2 px-4 hover:text-white">Your Library</a></li>
+                    <li><a href="#" class="block py-2 px-4 hover:text-white">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Main Content -->
+        <div class="w-3/4 p-8">
+            <h2 class="text-2xl font-bold mb-4">Home</h2>
+            <!-- Content here -->
+        </div>
     </div>
-
-    <script>
-        function logout() {
-            window.location.href = "login.html";
-        }
-    </script>
+    <!-- Player -->
+    <div class="fixed bottom-0 left-0 w-full bg-gray-900 p-4 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <img src="https://via.placeholder.com/50" alt="Song Thumbnail" class="w-10 h-10 rounded-md">
+            <div>
+                <p class="text-gray-300 mb-1">Song Title</p>
+                <p class="text-gray-400">Artist Name</p>
+            </div>
+        </div>
+        <div class="space-x-4">
+            <button class="text-white">Repeat</button>
+            <button class="text-white">Reverse</button>
+            <button class="text-white">Pause</button>
+            <button class="text-white">Play</button>
+        </div>
+    </div>
 </body>
 
 </html>
