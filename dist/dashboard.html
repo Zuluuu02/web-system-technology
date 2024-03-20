@@ -4,46 +4,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify Clone</title>
+    <title>Spotify</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-900 text-white font-sans">
-    <div class="flex">
-        <!-- Sidebar -->
-        <div class="w-1/4 h-screen bg-gray-900">
-            <h1 class="text-3xl text-center font-bold my-8">Spotify</h1>
-            <nav class="text-gray-400">
-                <ul class="space-y-4">
-                    <li><a href="#" class="block py-2 px-4 hover:text-white">Home</a></li>
-                    <li><a href="#" class="block py-2 px-4 hover:text-white">Search</a></li>
-                    <li><a href="#" class="block py-2 px-4 hover:text-white">Your Library</a></li>
-                    <li><a href="#" class="block py-2 px-4 hover:text-white">Profile</a></li>
-                </ul>
-            </nav>
+    <nav class="bg-black p-4 flex justify-between items-center">
+        <h1 class="text-xl font-semibold">Spotify</h1>
+        <div class="flex items-center">
+            <input type="text" placeholder="Search" class="bg-gray-800 text-white px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-green-500">
+            <button class="ml-2 bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md">Search</button>
         </div>
-        <!-- Main Content -->
-        <div class="w-3/4 p-8">
-            <h2 class="text-2xl font-bold mb-4">Home</h2>
-            <!-- Content here -->
-        </div>
-    </div>
-    <!-- Player -->
-    <div class="fixed bottom-0 left-0 w-full bg-gray-900 p-4 flex justify-between items-center">
-        <div class="flex items-center space-x-4">
-            <img src="https://via.placeholder.com/50" alt="Song Thumbnail" class="w-10 h-10 rounded-md">
-            <div>
-                <p class="text-gray-300 mb-1">Song Title</p>
-                <p class="text-gray-400">Artist Name</p>
+        <div class="flex items-center">
+            <div class="relative">
+                <img src="C:\Users\xyril\OneDrive\Pictures\OTHERS\received_4147145135540160.jpeg" alt="User" class="w-10 h-10 rounded-full">
+                <div class="absolute inset-0 rounded-full bg-gray-900 opacity-0 hover:opacity-75 transition duration-300"></div>
+            </div>
+            <div class="ml-3">
+                <button id="logoutBtn" class="text-sm text-gray-400 hover:text-white">Logout</button>
             </div>
         </div>
-        <div class="space-x-4">
-            <button class="text-white">Repeat</button>
-            <button class="text-white">Reverse</button>
-            <button class="text-white">Pause</button>
-            <button class="text-white">Play</button>
+        
+    </nav>
+    <aside class="bg-gray-800 text-white h-screen w-64 flex-shrink-0 overflow-y-auto">
+        <div class="p-4 border-b border-gray-700">
+            <div class="flex items-center space-x-4">
+                <img src="C:\Users\xyril\OneDrive\Pictures\OTHERS\received_4147145135540160.jpeg" alt="Profile picture" class="w-12 h-12 rounded-full">
+                <div>
+                    <h2 class="text-lg font-semibold">Xyrille Uy</h2>
+                    <p class="text-sm text-gray-400">Premium</p>
+                </div>
+            </div>
         </div>
-    </div>
+        <nav class="py-4">
+            <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white">Home</a>
+            <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white">Browse</a>
+            <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white">Radio</a>
+            <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white">Library</a>
+        </nav>
+        <div class="p-4">
+            <h3 class="text-sm text-gray-400 uppercase">Your Playlists</h3>
+            <ul class="mt-2">
+                <li><a href="#" class="block text-gray-400 hover:text-white">Discover Weekly</a></li>
+                <li><a href="#" class="block text-gray-400 hover:text-white">Rock Classics</a></li>
+        
+            </ul>
+        </div>
+    </aside>
+
+    <main class="flex-grow p-8">
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-4">Featured Playlists</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="bg-gray-800 rounded-md overflow-hidden shadow-lg">
+                    <img src="C:\Users\xyril\Downloads\wheels.jpg" alt="Playlist 1" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold mb-2">Pop Hits</h3>
+                        <p class="text-sm text-gray-400">By Spotify</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-8">
+            <h2 class="text-xl font-semibold mb-4">Recently Played</h2>
+            <div class="flex flex-wrap items-center justify-center">
+                <div class="flex flex-col items-center mb-4 mr-4">
+                    <img src="C:\Users\xyril\Downloads\50.jpg" alt="Track 1" class="w-16 h-16 rounded-md object-cover">
+                    <div class="mt-2">
+                        <h3 class="text-lg font-semibold">Top 50 Hits in the Philippines</h3>
+                        <p class="text-sm text-gray-400">By Spotify</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    <footer class="bg-gray-800 py-4 px-8 fixed bottom-0 left-0 w-full flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <img src="C:\Users\xyril\Downloads\hev.jpg" alt="Track Thumbnail" class="w-16 h-16 rounded-md object-cover">
+            <div>
+                <h3 class="text-lg font-semibold">Currently Playing</h3>
+                <p class="text-sm text-gray-400">Alam Mo Ba Girl • Hev ababi</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-4">
+            <button class="text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button class="text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l10 9L5 21V3z"></path>
+                </svg>
+            </button>
+            <button class="text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+            <input type="range" min="0" max="100" step="1" value="70" class="h-6 w-20 bg-gray-600">
+            <button class="text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+        </div>
+    </footer>
+    
+    <script dist="script.js"></script>
 </body>
 
 </html>
