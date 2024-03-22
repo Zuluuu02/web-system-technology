@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    cursor: pointer;
+    visibility: 1;
+    opacity: 0;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb:hover {
+    opacity: 1;
+  }
+  
