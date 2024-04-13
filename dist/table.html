@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gradient-to-r from-gray-900 bg-green-900">
+    <div class="container mx-auto py-8">
+        <div class="flex flex-col md:flex-row justify-center items-stretch gap-4">
+            <div class="md:w-96 bg-white rounded-lg shadow-md p-6">
+                <h1 class="text-2xl font-bold mb-4 text-center">Create an Account</h1>
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                    <input type="text" id="name" name="name"
+                        class="w-full border-b-2 border-gray-300 py-2 px-3 focus:outline-none focus:border-blue-500 rounded-md
+                        placeholder-gray-500">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" id="email" name="email"
+                        class="w-full border-b-2 border-gray-300 py-2 px-3 focus:outline-none focus:border-blue-500 rounded-md
+                        placeholder-gray-500">
+                </div>
+                <div class="mb-4">
+                    <label for="role" class="block text-sm font-medium text-gray-700 mb-1">Role</label>
+                    <select id="role" name="role"
+                        class="w-full border-b-2 border-gray-300 py-2 px-3 focus:outline-none focus:border-blue-500 rounded-md
+                        bg-gray-100 dark:bg-green-900">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div class="text-center">
+                    <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Create Account</button>
+                </div>
+            </div>
+            <div class="md:w-full lg:w-2/3 bg-white rounded-lg shadow-md p-6 mt-4 md:mt-0">
+                <h1 class="text-2xl font-bold mb-4 text-left">Users List</h1>
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="border-b-2 border-gray-300 px-4 py-2 text-left text-gray-700">ID</th>
+                            <th class="border-b-2 border-gray-300 px-4 py-2 text-center text-gray-700">Name</th>
+                            <th class="border-b-2 border-gray-300 px-4 py-2 text-center text-gray-700">Email</th>
+                            <th class="border-b-2 border-gray-300 px-4 py-2 text-left text-gray-700">Role</th>
+                            <th class="border-b-2 border-gray-300 px-4 py-2 text-center text-gray-700">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border-b border-gray-300 px-4 py-2">1</td>
+                            <td class="border-b border-gray-300 px-4 py-2 text-center">Xyrille</td>
+                            <td class="border-b border-gray-300 px-4 py-2 text-center">xyrille@email.com</td>
+                            <td class="border-b border-gray-300 px-4 py-2 text-green-500 font-bold">Admin</td>
+                            <td class="border-b border-gray-300 px-4 py-2 flex justify-center space-x-2">
+                                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded-full"
+                                    title="Edit"><i class="fas fa-edit"></i></button>
+                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded-full"
+                                    title="Delete"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="border-b border-gray-300 px-4 py-2">2</td>
+                            <td class="border-b border-gray-300 px-4 py-2 text-center">Clark</td>
+                            <td class="border-b border-gray-300 px-4 py-2 text-center">cute@email.com</td>
+                            <td class="border-b border-gray-300 px-4 py-2 text-green-300 font-semibold">User</td>
+                            <td class="border-b border-gray-300 px-4 py-2 flex justify-center space-x-2">
+                                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded-full"
+                                    title="Edit"><i class="fas fa-edit"></i></button>
+                                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded-full"
+                                    title="Delete"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
