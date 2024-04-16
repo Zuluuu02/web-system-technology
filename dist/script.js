@@ -10,47 +10,53 @@ document.addEventListener('DOMContentLoaded', function() {
         const role = document.getElementById('role').value;
 
         if (name && email && role) {
-            const newRow = userTable.insertRow();
-            const cell1 = newRow.insertCell(0);
-            const cell2 = newRow.insertCell(1);
-            const cell3 = newRow.insertCell(2);
-            const cell4 = newRow.insertCell(3);
-            const cell5 = newRow.insertCell(4);
-
-            cell1.textContent = userTable.rows.length;
-            cell2.textContent = name;
-            cell3.textContent = email;
-            cell4.textContent = role;
-
-            const editBtn = document.createElement('button');
-            editBtn.innerHTML = '<i class="fas fa-edit"></i>';
-            editBtn.classList.add('bg-green-500', 'hover:bg-green-700', 'text-white', 'font-bold', 'py-1', 'px-2', 'rounded-full');
-            editBtn.title = 'Edit';
-            editBtn.addEventListener('click', function() {
-                editUser(newRow);
-            });
-
-            const deleteBtn = document.createElement('button');
-            deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-            deleteBtn.classList.add('bg-red-500', 'hover:bg-red-700', 'text-white', 'font-bold', 'py-1', 'px-2', 'rounded-full');
-            deleteBtn.title = 'Delete';
-            deleteBtn.addEventListener('click', function() {
-                deleteUser(newRow);
-                saveUsersToStorage();
-            });
-
-            cell5.appendChild(editBtn);
-            cell5.appendChild(deleteBtn);
-
-            saveUsersToStorage();
-
-            document.getElementById('name').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('role').value = 'user';
+            appendValues(name, email, role); 
+            saveUsersToStorage(); 
+            clearForm(); 
         } else {
             alert('Please fill in all fields');
         }
     });
+
+    function appendValues(name, email, role) {
+        const newRow = userTable.insertRow();
+        const cell1 = newRow.insertCell(0);
+        const cell2 = newRow.insertCell(1);
+        const cell3 = newRow.insertCell(2);
+        const cell4 = newRow.insertCell(3);
+        const cell5 = newRow.insertCell(4);
+
+        cell1.textContent = userTable.rows.length;
+        cell2.textContent = name;
+        cell3.textContent = email;
+        cell4.textContent = role;
+
+        const editBtn = document.createElement('button');
+        editBtn.innerHTML = '<i class="fas fa-edit"></i>';
+        editBtn.classList.add('bg-green-500', 'hover:bg-green-700', 'text-white', 'font-bold', 'py-1', 'px-2', 'rounded-full');
+        editBtn.title = 'Edit';
+        editBtn.addEventListener('click', function() {
+            editUser(newRow);
+        });
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+        deleteBtn.classList.add('bg-red-500', 'hover:bg-red-700', 'text-white', 'font-bold', 'py-1', 'px-2', 'rounded-full');
+        deleteBtn.title = 'Delete';
+        deleteBtn.addEventListener('click', function() {
+            deleteUser(newRow);
+            saveUsersToStorage();
+        });
+
+        cell5.appendChild(editBtn);
+        cell5.appendChild(deleteBtn);
+    }
+
+    function clearForm() {
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('role').value = 'user';
+    }
 
     function saveUsersToStorage() {
         const users = [];
@@ -69,38 +75,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function loadUsersFromStorage() {
         const users = JSON.parse(localStorage.getItem('users')) || [];
         users.forEach(user => {
-            const newRow = userTable.insertRow();
-            newRow.insertCell(0).textContent = user.id;
-            newRow.insertCell(1).textContent = user.name;
-            newRow.insertCell(2).textContent = user.email;
-            newRow.insertCell(3).textContent = user.role;
-
-            const cell5 = newRow.insertCell(4);
-            const editBtn = document.createElement('button');
-            editBtn.innerHTML = '<i class="fas fa-edit"></i>';
-            editBtn.classList.add('bg-green-500', 'hover:bg-green-700', 'text-white', 'font-bold', 'py-1', 'px-2', 'rounded-full');
-            editBtn.title = 'Edit';
-            editBtn.addEventListener('click', function() {
-                editUser(newRow);
-            });
-
-            const deleteBtn = document.createElement('button');
-            deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
-            deleteBtn.classList.add('bg-red-500', 'hover:bg-red-700', 'text-white', 'font-bold', 'py-1', 'px-2', 'rounded-full');
-            deleteBtn.title = 'Delete';
-            deleteBtn.addEventListener('click', function() {
-                deleteUser(newRow);
-                saveUsersToStorage();
-            });
-
-            cell5.appendChild(editBtn);
-            cell5.appendChild(deleteBtn);
+            appendValues(user.name, user.email, user.role);
         });
     }
 
     function deleteUser(row) {
         row.parentNode.removeChild(row);
-    }    
+    }
 
     function editUser(row) {
         const name = prompt('Enter new name:', row.cells[1].textContent);
@@ -109,7 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (name !== null && email !== null) {
             row.cells[1].textContent = name;
             row.cells[2].textContent = email;
-            saveUsersToStorage(); 
+            saveUsersToStorage();
         }
     }
+
 });
