@@ -86,10 +86,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function editUser(row) {
         const name = prompt('Enter new name:', row.cells[1].textContent);
         const email = prompt('Enter new email:', row.cells[2].textContent);
+        const role = prompt('Enter new role:', row.cells[3].textContent);
 
         if (name !== null && email !== null) {
             row.cells[1].textContent = name;
             row.cells[2].textContent = email;
+            row.cells[3].textContent = role;
             saveUsersToStorage();
         }
     }
